@@ -1,113 +1,130 @@
-JavaScript Variables: var, let, const
-1. Purpose of Variables
+# JavaScript Variables: var, let, const (Complete Guide)
 
-Variables store data values in JavaScript.
-JavaScript provides three ways to declare variables:
+## 1. Purpose of Variables
 
-var – old method
+Variables store data values. JavaScript gives us three ways to declare them:
 
-let – modern, block scoped
+- `var` → old way
+- `let` → modern, block-scoped
+- `const` → modern, block-scoped, non-reassignable
 
-const – modern, block scoped, cannot be reassigned
+---
 
-2. Summary Table
-Feature	var	let	const
-Scope	Function scoped	Block scoped	Block scoped
-Reassign value?	Yes	Yes	No
-Redeclare variable?	Yes	No	No
-Hoisted?	Yes (initialized as undefined)	Yes (not initialized)	Yes (not initialized)
-Best use	Avoid in modern JS	Use when value changes	Use for fixed values or references
-3. Detailed Explanation
-var
-Purpose
+## 2. Summary Table
 
-var was used in older JS code. It has function scope and is generally avoided today.
+| Feature              | var                     | let                    | const                  |
+|----------------------|--------------------------|-------------------------|-------------------------|
+| Scope                | Function scoped          | Block scoped            | Block scoped            |
+| Reassign value?      | Yes                      | Yes                     | No                      |
+| Redeclare variable?  | Yes                      | No                      | No                      |
+| Hoisted?             | Yes (initialized as `undefined`) | Yes (not initialized) | Yes (not initialized)   |
+| Common use           | Avoid in modern JS       | Changing variables      | Fixed values or references |
 
-Syntax
+---
+
+## 3. Detailed Explanation
+
+### var
+
+#### Purpose
+`var` is used in older JavaScript code. Avoid using it in modern development.
+
+#### Syntax
+```js
 var x = 10;
 
-Example
-var name = "Sujal";
-name = "Sourav";   // allowed
 
+## Example (var)
+
+```js
+var name = "Sujal";
+name = "Sourav"; // Allowed
 Problems with var
-a) Not block scoped
+1. Function Scoped (Not block-scoped)
+js
+Copy code
 if (true) {
     var x = 10;
 }
-console.log(x);  // 10 (still accessible)
-
-b) Hoisting creates unexpected bugs
+console.log(x); // 10 (Leaks outside block)
+2. Hoisting Behaviour
+js
+Copy code
 console.log(a); // undefined
 var a = 5;
-
-c) Redeclaration allowed (not safe)
+3. Redeclaration Allowed
+js
+Copy code
 var a = 10;
-var a = 20;   // allowed → can cause bugs
-
-let
+var a = 20; // No error - can cause bugs
+3.2 let
 Purpose
-
-Use when the value needs to be updated. Let is block scoped.
+Use when the value needs to change and remain inside block scope.
 
 Syntax
-let age = 20;
-
+js
+Copy code
+let age = 25;
 Example
-let score = 50;
-score = 70;  // allowed
-
-Block scope
+js
+Copy code
+let score = 90;
+score = 95; // Allowed
+Block Scoped
+js
+Copy code
 if (true) {
     let x = 10;
 }
 console.log(x); // Error: x is not defined
-
-No redeclaration
+No Redeclaration
+js
+Copy code
 let a = 10;
 let a = 20; // Error
-
-const
+3.3 const
 Purpose
-
-Use when the value should not be reassigned.
+Use for values that should not be reassigned.
 
 Syntax
+js
+Copy code
 const PI = 3.14;
-
-Reassignment not allowed
+Reassignment Not Allowed
+js
+Copy code
 const num = 100;
 num = 200; // Error
+Internal Mutation is Allowed
+(const prevents reassignment, not mutation)
 
-But mutation is allowed (arrays & objects)
-Array example
-const arr = [1, 2, 3];
-arr.push(4);  // allowed
-
-Object example
+Arrays
+js
+Copy code
+const items = [1, 2, 3];
+items.push(4); // Allowed
+Objects
+js
+Copy code
 const user = { name: "Sujal" };
-user.name = "Sourav";  // allowed
-
-
-Reassignment is not allowed:
-
+user.name = "Sourav"; // Allowed
+But reassignment is not allowed:
+js
+Copy code
 user = {}; // Error
-
 4. When to Use What?
-Scenario	Use
-Value must never change	const
+Situation	Use
+Value never changes	const
 Value will change	let
-Old legacy code only	var
+Old JavaScript code	var
+
 5. Easy Memory Trick
+C – L – V Rule
+C → const → Constant (no change)
 
-C → const → does not change
-L → let → value changes
-V → var → avoid in modern JS
+L → let → Let it change
 
-6. Final Takeaway
+V → var → Vintage (avoid)
 
-Use const by default
-
-Use let when reassignment is needed
-
-Avoid var because of scope and hoisting problems
+yaml
+Copy code
