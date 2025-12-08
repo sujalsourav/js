@@ -38,6 +38,13 @@ Note: TDZ = Temporal Dead Zone (access before initialization throws ReferenceErr
 
 ---
 
+⭐ In One Line
+
+- Hoisting means JavaScript remembers variable/function declarations before running the code.
+  - var → hoisted + initialized to undefined
+  - let/const → hoisted but uninitialized (TDZ)
+  - function → hoisted with full body
+
 var
 
 - Purpose
