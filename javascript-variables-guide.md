@@ -240,4 +240,3 @@ Further reading
 
 Version notes
 - This file reorganized and rewritten for clarity: consistent headings, examples, and best-practice guidance.
-- Keep examples minimal and focused; expand with playground links or runnable snippets as needed.
