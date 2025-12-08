@@ -50,7 +50,7 @@ Note: TDZ = Temporal Dead Zone (access before initialization throws ReferenceErr
 - Mutable binding: variable can point to a new value (let, var)
 - Immutable binding: variable cannot point to a new value (const)
 
-var
+⭐ var
 
 - Purpose
   - Legacy keyword. Function-scoped and hoisted. Avoid in modern code unless maintaining old codebases.
@@ -89,7 +89,7 @@ var a = 5;
 
 ---
 
-let
+⭐ let
 
 - Purpose
   - Block-scoped variable for values that will change (mutable binding).
@@ -128,7 +128,7 @@ a = 20; // OK
 
 ---
 
-const
+⭐ const
 
 - Purpose
   - Block-scoped binding which cannot be reassigned. Use for values that should not be reassigned.
@@ -194,7 +194,7 @@ state.count += 1; // allowed
 
 ---
 
-Best practices & migration tips
+⭐ Best practices & migration tips
 
 - Default to const:
   - Start by declaring variables with const and switch to let only when you need to reassign.
@@ -218,7 +218,7 @@ Common pitfalls (quick list)
 
 ---
 
-Quick reference (cheat sheet)
+⭐ Quick reference (cheat sheet)
 - Use const for constants and references that shouldn't change.
 - Use let for mutable bindings.
 - Avoid var.
