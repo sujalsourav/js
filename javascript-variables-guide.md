@@ -45,6 +45,11 @@ Note: TDZ = Temporal Dead Zone (access before initialization throws ReferenceErr
   - let/const → hoisted but uninitialized (TDZ)
   - function → hoisted with full body
 
+⭐ In One Line
+
+- Mutable binding: variable can point to a new value (let, var)
+- Immutable binding: variable cannot point to a new value (const)
+
 var
 
 - Purpose
