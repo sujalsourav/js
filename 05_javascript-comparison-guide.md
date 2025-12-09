@@ -28,6 +28,8 @@ Rules you must remember (short & sharp)
   - If operands are not both strings, JS converts them to primitives and (usually) to numbers before comparing.
   - Example: `"2" > 1` → `"2"` → number 2 → `2 > 1` → `true`.
 
+- Coercion = JavaScript changing the type for you, even when you didn’t ask.
+
 - Loose equality (==)
   - Performs type coercion using complex rules.
   - `null == undefined` → `true`.
