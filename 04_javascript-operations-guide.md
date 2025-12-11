@@ -24,11 +24,10 @@ Rule:
 
 ✔ If any operand is a string, JavaScript converts everything to string and concatenates (joins).
 
-Examples:
-
-"1" + 2    // "12"
-1 + "2"    // "12"
-"1" + 2 + 2   // "122"
+- Examples:
+  - "1" + 2    // "12"
+    - 1 + "2"    // "12"
+    - "1" + 2 + 2   // "122"
 
 👉 Because evaluation happens left → right.
 
@@ -65,7 +64,7 @@ Step-by-step:
 
 Unary + tries to convert a value into a number.
 
-Examples:
+## Examples:
 
 +true   // 1
 +""     // 0
@@ -110,11 +109,10 @@ Returns old value first
 
 Increases value afterward
 
-Example:
-
-let a = 5;
-console.log(a++);  // prints 5, but a becomes 6 internally
-console.log(a);    // 6
+- Example:
+  - let a = 5;
+  - console.log(a++);  // prints 5, but a becomes 6 internally
+  - console.log(a);    // 6
 
 ## 7️⃣ Combining Operators — Important Concepts
 
