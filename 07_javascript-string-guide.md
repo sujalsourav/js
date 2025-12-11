@@ -1,94 +1,77 @@
+const myName = "sujal"
+console.log(myName); // sujal
 
-`Hello my name is ${name} and my repo count is ${repoCount}`
+const emailId = "19winsujal@gmail.com"
 
-* ✔ **Easier:** Avoids complex concatenation (`"text" + value + "text"`)
-* ✔ **Features:** Supports variables, expressions, and multiline text natively.
+// always try to use backtick for string interpolation ---> very important
+const fullinfo = `My name is ${myName} and my email id is ${emailId}`
+console.log(fullinfo); // My name is sujal and my email id is 19winsujal@gmail.com
 
----
+// some string methods
+// 1. length
+console.log(emailId.length); // 19
+console.log(fullinfo.length); // 52
 
-## 2️⃣ String Object vs. String Literal
+// 2. toUpperCase() and toLowerCase()
+console.log(emailId.toUpperCase()); // 19WINSUJAL@GMAIL.COM
+console.log(emailId.toLowerCase()); // 19winsujal@gmail.com 
 
-```javascript
-const gameName = new String("hitesh-hc-com");
+// 3. indexOf()
+console.log(emailId.indexOf('19'));
 
-| Type | Example | Description |
-| :--- | :--- | :--- |
-| **String Literal** | `"text"` | Primitive string (the standard) |
-| **String Object** | `new String("text")` | Object type (has properties like length and methods) |
+// 4. charAt()
+console.log(myName.charAt(3)); // a
 
-**Index Access:**
+// 5. substring()  --> takes {start, end} value but gives {end-1} values.
+console.log(myName.substring(0,4)); // suja
 
-```javascript
-gameName[0]       // Output: 'h'
-gameName.length   // Output: 13
+// 6. slice()  --> takes {start, end} value but gives {end-1} values.
+// IT ALSO WORKS WELL WITH {NEGATIVE INDEXING}
+console.log(myName.slice(-2,-4)); // ja
 
----
+// 7. split()  --> splits the string into array of strings based on given separator
+const myFriends = "sujal-ankit-rohan-rahul"
+const friendsArray = myFriends.split("-")
+console.log(friendsArray); // [ 'sujal', 'ankit', 'rohan', 'rahul' ]
 
-## 3️⃣ Common String Methods You MUST Know
+// 8. replace()  --> replaces a part of string with given new string
+const newFriends = myFriends.replace("rohan", "ankur")
+console.log(newFriends); // sujal-ankit-ankur-rahul
 
-| Method | Purpose | Example | Output |
-| :--- | :--- | :--- | :--- |
-| `toUpperCase()` | Converts the entire string to uppercase. | `gameName.toUpperCase()` | `"HITESH-HC-COM"` |
-| `charAt(index)` | Returns the character at a specific index. | `gameName.charAt(2)` | `'t'` |
-| `indexOf(char)` | Returns the position of the first occurrence of a character. | `gameName.indexOf('t')` | `2` |
+// 9. includes()  --> returns boolean value based on whether the given string is present or not
+console.log(myFriends.includes("ankit")); // true
+console.log(myFriends.includes("ankur")); // false
 
----
+// 10. trim()  --> removes extra spaces from start and end of string
+const stringWithSpaces = "     sujal,,,,,,,,,sourav    "
+console.log(stringWithSpaces.trim()); // sujal,,,,,,,,,sourav
+// if i have to remove spaces from middle also then use replaceAll() method
+const stringWithoutSpaces = stringWithSpaces.replaceAll(",", "")
+console.log(stringWithoutSpaces) // sujalsourav
 
-## 4️⃣ `substring(start, end)`
+// 11. concat()  --> concatenates two or more strings
+const greet1 = "Good Morning "
+const greet2 = "Sujal"
+const fullGreet = greet1.concat(greet2)
+console.log(fullGreet); // Good Morning Sujal
 
-* The `end` index is **NOT** included.
-* **Important:** Does not allow negative numbers; negative inputs are treated as `0`.
+// 12. repeat()  --> repeats the string for given number of times
+const laugh = "ha"
+console.log(laugh.repeat(5)); // hahahahaha
 
-```javascript
-gameName.substring(0, 4);  // Output: "hite"
+// 13. startsWith() and endsWith()  --> returns boolean value 
+// based on whether the string starts or ends with given substring
+console.log(emailId.startsWith("19win"));  // true
+console.log(emailId.endsWith("gmail.com")); // true
+console.log(emailId.endsWith("yahoo.com")); // false
+console.log(emailId.startsWith("sujal")); // false
 
----
 
-## 5️⃣ `slice(start, end)`
 
-* **Key Feature:** Supports **negative indexing** (starts counting from the end).
 
-```javascript
-gameName.slice(-8, 4);
-* *Note: If `start` > `end` when using negative indices, it returns an empty string.*
 
----
 
-## 6️⃣ `trim()`
 
-* Removes leading and trailing whitespace.
 
-```javascript
-"   hitesh   ".trim();   // Output: "hitesh"
 
----
 
-## 7️⃣ `replace(old, new)`
-
-* Replaces the **first** occurrence of a substring.
-
-```javascript
-let url = "[https://example.com/search%20term](https://example.com/search%20term)";
-url.replace('%20', '-'); 
-* **For all occurrences:** Use the modern `replaceAll()`.
-
----
-
-## 8️⃣ `includes(substring)`
-
-* Checks if a substring exists.
-* Returns a **boolean** (`true` or `false`).
-
-```javascript
-let url = "[https://example.com](https://example.com)";
-url.includes('sundar'); // Output: false
-
----
-
-## 9️⃣ `split(separator)`
-
-* Converts the string into an **array** based on the specified separator.
-
-```javascript
-gameName.split('-');
-// Output: ["hitesh", "hc", "com"]
